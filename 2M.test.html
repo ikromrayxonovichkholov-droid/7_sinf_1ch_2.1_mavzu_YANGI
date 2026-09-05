@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Murakkabroq Test</title>
+
+<style>
+body{
+    font-family:Arial, sans-serif;
+    margin:30px;
+    background:#f0f8ff;
+}
+
+h2{
+    color:darkblue;
+    text-align:center;
+}
+
+.question{
+    background:white;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 5px gray;
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    background:green;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:darkgreen;
+}
+
+#natija{
+    margin-top:20px;
+    padding:15px;
+    background:white;
+    border-radius:10px;
+    box-shadow:0 0 5px gray;
+    font-size:20px;
+}
+
+.student-info{
+    background:#e8f5e9;
+    padding:18px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 5px gray;
+}
+
+.student-info input,
+.student-info select{
+    padding:9px;
+    font-size:16px;
+    border:1px solid #aaa;
+    border-radius:6px;
+    margin-left:8px;
+}
+
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+
+<h2>"INFORMATIKA VA AXBOROT TEXNOLOGIYALARI"7-SINF I-CHORAK 2-MAVZU TEST-1</h2>
+
+<form id="test">
+
+<div class="student-info">
+<h3>O‘QUVCHI MA’LUMOTLARI</h3>
+
+<label>
+<b>O‘quvchining familiyasi va ismi:</b>
+<input type="text" id="fio" placeholder="Masalan: Aliyev Ali" required>
+</label>
+
+<br><br>
+
+<label>
+<b>Sinf:</b>
+<select id="sinf" required>
+<option value="">Sinfni tanlang</option>
+<option>7-A</option>
+<option>7-B</option>
+</select>
+</label>
+</div>
+
+
+<div class="question">
+<p><b>1. Hujjatdagi matn sahifasiga tasvir qanday joylashtiriladi</b></p>
+
+<label>
+<input type="radio" name="q1" value="1">
+Vstavka->Risunki
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="0">
+Vstavka->Znachki
+</label><br>
+
+<label>
+<input type="radio" name="q1" value="0">
+ Vstavka->Figuri
+</label>
+
+</div>
+
+<div class="question">
+<p><b>2. Hujjatdagi matn sahifasiga rasm yoki tasvir qo`yishda matn muharririning qanday menyusidan foydalaniladi?</b></p>
+
+<label>
+<input type="radio" name="q2" value="1">
+Vstavka
+</label><br>
+
+<label>
+<input type="radio" name="q2" value="0">
+Home
+</label><br>
+
+<label>
+<input type="radio" name="q2" value="0">
+Konstruktor
+
+</div>
+
+<div class="question">
+<p><b>3. Wrap text sozlamasining vazifasi nimalardan iborat</b></p>
+
+<label>
+<input type="radio" name="q3" value="0">
+Matn va tasvirlarning stilini o`zgartirish
+</label><br>
+
+<label>
+<input type="radio" name="q3" value="1">
+Matnni sig`dirish
+</label><br>
+
+<label>
+<input type="radio" name="q3" value="0">
+Matnning tashqi ko`rinishi,masalan,shrift turi,o`lchami,rangi kabi xususiyatlari
+</label>
+
+
+</div>
+<div class="question">
+<p><b>4. Wrap text buyrug`ining Square varinti qanday vazifani bajaradi?</b></p>
+
+
+<label>
+<input type="radio" name="q4" value="0">
+Tarjimasi-orqali.Matn rasmning ichki bo`sh joylari orqali bo`lishini ta`minlaydi
+</label><br>
+
+<label>
+<input type="radio" name="q4" value="0">
+Tarjimasi-zich.Matn rasmning chegarasiga yaqin joylashishini ta`minlaydi.
+</label></br>
+<label>
+<input type="radio" name="q4" value="1">
+Tarjimasi-to`rtburchak.Matn rasmni to`rt tomonini o`rab  joylashishini ta`minlaydi.
+</label><br>
+</div>
+<div class="question">
+<p><b>5.Wrap text buyrug`ining Tight varinti qanday vazifani bajaradi?</b></p>
+
+
+<label>
+<input type="radio" name="q5" value="1">
+Tarjimasi-zich.Matn rasmning chegarasiga yaqin joylashishini ta`minlaydi. 
+</label><br>
+
+<label>
+<input type="radio" name="q5" value="0">
+Tarjimasi-to`rtburchak.Matn rasmni to`rt tomonini o`rab  joylashishini ta`minlaydi.</br>
+</label>
+<label>
+<input type="radio" name="q5" value="0">
+Tarjimasi-orqali.Matn rasmning ichki bo`sh joylari orqali bo`lishini ta`minlaydi
+</label><br>
+</div>
+<div class="question">
+<p><b>6.Wrap text buyrug`ining Through varinti qanday vazifani bajaradi? </b></p>
+
+
+<label>
+<input type="radio" name="q6" value="0">
+Tarjimasi-to`rtburchak.Matn rasmni to`rt tomonini o`rab  joylashishini ta`minlaydi.
+</label><br>
+
+<label>
+<input type="radio" name="q6" value="0">
+Tarjimasi-zich.Matn rasmning chegarasiga yaqin joylashishini ta`minlaydi. 
+</label><br>
+<label>
+<input type="radio" name="q6" value="1">
+Tarjimasi-orqali.Matn rasmning ichki bo`sh joylari orqali bo`lishini ta`minlaydi
+</label>
+</div>
+<div class="question">
+<p><b>7. Wrap text buyrug`ining Top and Bottom varinti qanday vazifani bajaradi?</b></p>
+
+<label>
+<input type="radio" name="q7" value="0">
+Tarjimasi-matn orqasida.Rasm matnning orqasida joylashishini ta`minlaydi.
+</label><br>
+
+<label>
+<input type="radio" name="q7" value="1">
+Tarjimasi-yuqori va pastki.Matn rasmning yuqorisida va pastida joylashtirilishini ta`minlaydi.
+</label><br>
+<label>
+<input type="radio" name="q7" value="0">
+Tarjimasi-matn oldida.Rasm matnni oldida-ustida joylashishini ta`minlaydi va matnni berkitishi mumkin.
+</label>
+</div>
+<div class="question">
+<p><b>8.  Wrap text buyrug`ining Behind Text varinti qanday vazifani bajaradi?</b></p>
+
+<label>
+<input type="radio" name="q8" value="0">
+Tarjimasi-yuqori va pastki.Matn rasmning yuqorisida va pastida joylashtirilishini ta`minlaydi.
+</label><br>
+
+<label>
+<input type="radio" name="q8" value="0">
+Tarjimasi-matn oldida.Rasm matnni oldida-ustida joylashishini ta`minlaydi va matnni berkitishi mumkin.
+</label></br>
+<label>
+<input type="radio" name="q8" value="1">
+Tarjimasi-matn orqasida.Rasm matnning orqasida joylashishini ta`minlaydi.
+</label><br>
+
+</div>
+<div class="question">
+<p><b>9. Wrap text buyrug`ining In Front of Text varinti qanday vazifani bajaradi?</b></p>
+
+<label>
+<input type="radio" name="q9" value="1">
+Tarjimasi-matn oldida.Rasm matnni oldida-ustida joylashishini ta`minlaydi va matnni berkitishi mumkin.
+</label><br>
+
+<label>
+<input type="radio" name="q9" value="0">
+Tarjimasi-matn orqasida.Rasm matnning orqasida joylashishini ta`minlaydi.
+</label></br>
+<label>
+<input type="radio" name="q9" value="0">
+Tarjimasi-yuqori va pastki.Matn rasmning yuqorisida va pastida joylashtirilishini ta`minlaydi.
+</label><br>
+</div>
+<div class="question">
+<p><b>10.  Wrap text buyrug`ining Edit Wrap Pointes varinti qanday vazifani bajaradi?</b></p>
+
+<label>
+<input type="radio" name="q10" value="0">
+Tarjimasi-orqali.Matn rasmning ichki bo`sh joylari orqali bo`lish imkonini beradi.
+</label><br>
+
+<label>
+<input type="radio" name="q10" value="0">
+Tarjimasi-yuqori va pastki.Matn rasmning yuqorisida va pastida joylashtirish imkonini beradi.
+</label></br>
+<label>
+<input type="radio" name="q10" value="1">
+Tarjimasi-o`rash nuqtalarini tahrirlash.Matn rasmni qaysi chegarasi bo`ylab o`rashini qolda belgilash imkonini beradi.
+</label></br>
+</div>
+<div class="question">
+<p><b>11. Bilasizmi...Wrap Textning tarkibidagi biz nomlagan variantlari umumiy qilib aytganda, qanday amalni boshqaradi?</b></p>
+<label>
+<input type="radio" name="q11" value="1">
+Rasm va matnning bir-biriga nisbatan joylashishini boshqaradi.
+</label><br>
+
+<label>
+<input type="radio" name="q11" value="0">
+Sahifa va matn qatorlarining bir-biriga nisbatan joylashishini boshqaradi.
+</label></br>
+<label>
+<input type="radio" name="q11" value="0">
+Sahifaning pastki va ustki qatorlarining bir-biriga nisbatan joylashishini boshqaradi.
+</label></br>
+</div>
+<div class="question">
+<p><b>12. Aziz o`quvchim.. Bilasizmi...Wrap text buyruqlar qatorida yana qanday nomlanadi?</b></p>
+
+<label>
+<input type="radio" name="q12" value="0">
+Polojeniye-joylashuv,holat.Rasm yoki obyektning sahifaning qayerida joylashishini belgilaydi
+</label><br>
+
+<label>
+<input type="radio" name="q12" value="0">
+Uporyadochit-tartibga solish.Rasm,shakl yoki boshqa obyektlarning bib-biriga nisbatan joylashuvini boshqaradi
+</label></br>
+<label>
+<input type="radio" name="q12" value="1">
+Obtekaniy tekstom-Matnni rasm atrofida joylashtirish
+</label><br>
+</div>
+<div class="question">
+<p><b>13. Crop buyrug`ining vazifasi nimadan iborat?</b></p>
+
+<label>
+<input type="radio" name="q13" value="0">
+Tasvirning o`lchmini katta yoki kichiklashtirishdan iborat.
+</label><br>
+
+<label>
+<input type="radio" name="q13" value="1">
+Tasvirning keraksiz qismini qirqib tashlashdan iborat.
+</label></br>
+<label>
+<input type="radio" name="q13" value="0">
+Tasvirning bo`yi va eni o`rtasidagi nisbatni aniqlashdan iborat.
+</label><br>
+</div>
+<div class="question">
+<p><b>14. Resize buyrug`ining vazifasi nimadan iborat?</b></p>
+
+<label>
+<input type="radio" name="q14" value="1">
+Tasvirning o`lchmini katta yoki kichiklashtirishdan iborat.</label><br>
+
+<label>
+<input type="radio" name="q14" value="0">
+Tasvirning keraksiz qismini qirqib tashlashdan iborat.
+</label></br>
+<label>
+<input type="radio" name="q14" value="0">
+Tasvirning bo`yi va eni o`rtasidagi nisbatni aniqlashdan iborat.
+</label><br>
+</div>
+<div class="question">
+<p><b>15.Aspect ratio buyrug`ining vazifasi nimadan iborat?</b></p>
+
+<label>
+<input type="radio" name="q15" value="0">
+Tasvirning keraksiz qismini qirqib tashlashdan iborat.</label><br>
+
+<label>
+<input type="radio" name="q15" value="0">
+Tasvirning o`lchmini katta yoki kichiklashtirishdan iborat.
+</label></br>
+<label>
+<input type="radio" name="q15" value="1">
+Tasvirning bo`yi va eni o`rtasidagi nisbatni aniqlashdan iborat.
+</label><br>
+
+</div>
+<button type="button" onclick="tekshir()">
+Natijani ko'rish
+</button>
+
+<button type="button" onclick="excelgaSaqlash()" style="background:#1565c0; margin-left:10px;">
+Excelga saqlash
+</button>
+<br><br>
+<button type="button" onclick="barchaNatijalarniExcelga()" style="background:#7b1fa2;">
+Barcha natijalarni Excelga chiqarish
+</button>
+
+<button type="button" onclick="natijalarniTozalash()" style="background:#c62828; margin-left:10px;">
+Natijalarni tozalash
+</button>
+
+</form>
+
+<div id="natija"></div>
+
+<script>
+
+function tekshir(){
+
+let jamiSavol = 15;
+
+let fio = document.getElementById("fio").value.trim();
+let sinf = document.getElementById("sinf").value;
+
+if(fio === "" || sinf === ""){
+    alert("Iltimos, o‘quvchining familiyasi va ismini hamda sinfini kiriting!");
+    return;
+}
+
+let ball = 0;
+
+let hisobot = "";
+
+for(let i=1; i<=jamiSavol; i++){
+
+let javob =
+document.querySelector('input[name="q'+i+'"]:checked');
+
+if(javob){
+
+if(javob.value=="1"){
+
+ball++;
+
+hisobot += "✅ " + i +
+"-savol : To'g'ri<br>";
+
+}else{
+
+hisobot += "❌ " + i +
+"-savol : Noto'g'ri<br>";
+
+}
+
+}else{
+
+hisobot += "⚠ " + i +
+"-savol javob belgilanmagan.<br>";
+
+}
+
+}
+
+let foiz = (ball/jamiSavol)*100;
+
+let baho="";
+
+if(foiz>=90){
+
+baho="5";
+
+}else if(foiz>=70){
+
+baho="4";
+
+}else if(foiz>=50){
+
+baho="3";
+
+}else{
+
+baho="2";
+
+}
+
+document.getElementById("natija").innerHTML=
+
+"<h2>TEST NATIJASI</h2>" +
+"<b>O‘quvchi:</b> " + fio +
+"<br><b>Sinf:</b> " + sinf +
+"<br><br>" +
+hisobot +
+
+"<hr>" +
+
+"<b>To'g'ri javoblar:</b> " + ball +
+
+"<br><b>Jami savollar:</b> " + jamiSavol +
+
+"<br><b>Foiz:</b> " + foiz.toFixed(1) + "%" +
+
+"<br><br><b>Baho:</b> " + baho;
+
+
+    window.testNatija = {
+        fio: fio,
+        sinf: sinf,
+        ball: ball,
+        jamiSavol: jamiSavol,
+        foiz: foiz,
+        baho: baho,
+        sana: new Date().toLocaleString("uz-UZ")
+    };
+}
+
+
+function excelgaSaqlash(){
+
+    if(!window.testNatija){
+        alert("Avval testni bajaring va «Natijani ko‘rish» tugmasini bosing!");
+        return;
+    }
+
+    let n = window.testNatija;
+
+    // Oldingi o'quvchilar natijalarini brauzer xotirasidan olamiz
+    let natijalar = JSON.parse(localStorage.getItem("testNatijalari") || "[]");
+
+    // Yangi natijani qo'shamiz
+    natijalar.push({
+        sana: n.sana,
+        fio: n.fio,
+        sinf: n.sinf,
+        ball: n.ball,
+        jamiSavol: n.jamiSavol,
+        foiz: n.foiz.toFixed(1) + "%",
+        baho: n.baho
+    });
+
+    // Brauzerda saqlab qo'yamiz
+    localStorage.setItem("testNatijalari", JSON.stringify(natijalar));
+
+    // Barcha o'quvchilar natijasini Excel jadvaliga tayyorlaymiz
+    let jadval = [
+        ["№", "Sana", "O‘quvchi F.I.O.", "Sinf",
+         "To‘g‘ri javoblar", "Jami savollar", "Foiz", "Baho"]
+    ];
+
+    natijalar.forEach(function(r, index){
+        jadval.push([
+            index + 1,
+            r.sana,
+            r.fio,
+            r.sinf,
+            r.ball,
+            r.jamiSavol,
+            r.foiz,
+            r.baho
+        ]);
+    });
+
+    let worksheet = XLSX.utils.aoa_to_sheet(jadval);
+
+    // Ustun kengliklari
+    worksheet["!cols"] = [
+        {wch:5},
+        {wch:20},
+        {wch:28},
+        {wch:10},
+        {wch:18},
+        {wch:16},
+        {wch:12},
+        {wch:8}
+    ];
+
+    let workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Natijalar");
+
+    XLSX.writeFile(workbook, "Barcha_oquvchilar_natijalari.xlsx");
+
+    alert("Natija saqlandi!\nJami o‘quvchilar: " + natijalar.length);
+}
+
+// Barcha yig'ilgan natijalarni Excelga qayta chiqarish
+function barchaNatijalarniExcelga(){
+
+    let natijalar = JSON.parse(localStorage.getItem("testNatijalari") || "[]");
+
+    if(natijalar.length === 0){
+        alert("Hozircha saqlangan o‘quvchi natijalari yo‘q.");
+        return;
+    }
+
+    let jadval = [
+        ["№", "Sana", "O‘quvchi F.I.O.", "Sinf",
+         "To‘g‘ri javoblar", "Jami savollar", "Foiz", "Baho"]
+    ];
+
+    natijalar.forEach(function(r, index){
+        jadval.push([
+            index + 1,
+            r.sana,
+            r.fio,
+            r.sinf,
+            r.ball,
+            r.jamiSavol,
+            r.foiz,
+            r.baho
+        ]);
+    });
+
+    let worksheet = XLSX.utils.aoa_to_sheet(jadval);
+
+    worksheet["!cols"] = [
+        {wch:5},
+        {wch:20},
+        {wch:28},
+        {wch:10},
+        {wch:18},
+        {wch:16},
+        {wch:12},
+        {wch:8}
+    ];
+
+    let workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Natijalar");
+
+    XLSX.writeFile(workbook, "Barcha_oquvchilar_natijalari.xlsx");
+}
+
+// O'qituvchi xohlasa barcha saqlangan natijalarni tozalashi mumkin
+function natijalarniTozalash(){
+
+    if(confirm("Barcha saqlangan o‘quvchi natijalarini o‘chirishni xohlaysizmi?")){
+        localStorage.removeItem("testNatijalari");
+        alert("Barcha natijalar o‘chirildi.");
+    }
+}
+
+</script>
+
+</body>
+</html>
